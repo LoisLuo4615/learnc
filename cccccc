@@ -31,7 +31,11 @@ int main() {
     cout << ans << endl;
     return 0;
 }
+<<<<<<< HEAD
 
 
 #####
 cout << ans << endl;
++++
+=======
+>>>>>>> 894465451f9509a7ebd62b1fd4887084d5eb074e

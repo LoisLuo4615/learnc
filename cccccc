@@ -31,7 +31,3 @@ int main() {
     cout << ans << endl;
     return 0;
 }
-
-
-#####
-cout << ans << endl;

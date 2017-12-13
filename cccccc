@@ -32,4 +32,6 @@ int main() {
     return 0;
 }
 
-#111222
+
+#####
+cout << ans << endl;

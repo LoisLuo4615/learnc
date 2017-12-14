@@ -2,9 +2,6 @@ import re
 import pandas as pd
 ps_title = pd.read_csv('ps_title3.csv', encoding='utf-8',header=0,quotechar='"')
 
-# import csv
-# csvFile = open("ps_title.csv","w+",encoding='utf-8' )
-# reader = csv.reader(csvFile)
 def marks_replace(string):
     if string:
         while '"' in string:

@@ -53,4 +53,4 @@ getEmotionalType <- function(x,pos,neg,pweight,nweight,id,title){
 segwords <- sapply(ps_article$content, segment, engine)
 segwords2 <- sapply(segwords,segwordsfun)
 score <- getEmotionalType(segwords2, pos, neg , pweight , nweight , ps_article$id,ps_article$title)
-write.csv(score1,file="score.csv",quote=F,row.names = F)
+write.csv(score,file="score.csv",quote=F,row.names = F)

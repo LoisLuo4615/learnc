@@ -5,13 +5,13 @@ import pandas as pd
 
 #参数初始化
 inputfile = 'E:/git/learn/python/data/sales_data.xls'
-data = pd.read_excel(inputfile, index_col = u'序号') #导入数据
+data = pd.read_excel(inputfile, index_col = '序号') #导入数据
 
 #数据是类别标签，要将它转换为数据
 #用1来表示“好”、“是”、“高”这三个属性，用-1来表示“坏”、“否”、“低”
-data[data == u'好'] = 1
-data[data == u'是'] = 1
-data[data == u'高'] = 1
+data[data == '好'] = 1
+data[data == '是'] = 1
+data[data == '高'] = 1
 data[data != 1] = -1
 x = data.iloc[:,:3].as_matrix().astype(int)
 y = data.iloc[:,3].as_matrix().astype(int)

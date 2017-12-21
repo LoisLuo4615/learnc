@@ -41,3 +41,6 @@ graph.write_pdf("ID3.pdf")
 
 Y_predict = dtc.predict(x)###用训练集来测试下准确率
 print(int(sum(Y_predict==y))/len(y))#准确率为0.7647
+
+from cm_plot import *##画混淆矩阵图，对比Y
+cm_plot(y,Y_predict).show()

@@ -1,3 +1,11 @@
+//c++ 面向对象程序设计第七版p426,13
+//author leaf_zsy
+
+//enter 1010010100010101100001001
+//output 99504
+
+//enter 99504
+//output 1010010100010101100001001
 #include <iostream>
 #include <string>
 #include <cmath>

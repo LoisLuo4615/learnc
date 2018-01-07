@@ -10,6 +10,8 @@
 #include <string>
 #include <cmath>
 #include <cstdlib>
+#include <cstring>
+#include <cctype>
 #define char_int(x) (x-'0')
 using namespace std;
 
@@ -48,19 +50,27 @@ void posthet::check_code()
   while(code_char[i]!='\0')
     {
       code[i]=char_int(code_char[i]);
+      //cout << !isdigit(code_char[i]);
+      if(!isdigit(code_char[i]))
+          {
+            cout << "The code is not int!\n";
+            exit(1);
+          }
       i++;
     }
-
-  if(code_char[27]=='\0' && code_char[5]!='\0')
+  if(strlen(code_char)==27)
+  // if(code_char[27]=='\0' && code_char[5]!='\0')
     {
-      for(int i=1;i<=21;i=i+5)
+      for(int i=1;i<=21;i=i+5)//每组有2个1,例：11000
         if((code[i]+code[i+1]+code[i+2]+code[i+3]+code[i+4])!=2)
           {
             cout << "The code is invalid!\n";
             exit(1);
           }
     }
-  else if(code_char[5]!='\0'|| code_char[1]=='\0' || code_char[2]=='\0' ||code_char[3]=='\0' || code_char[4]=='\0' )
+  else if(strlen(code_char)!=5)
+
+  // else if(code_char[5]!='\0'|| code_char[1]=='\0' || code_char[2]=='\0' ||code_char[3]=='\0' || code_char[4]=='\0' )
     {
       cout  <<"The code is invalid!\n";
       exit(1);

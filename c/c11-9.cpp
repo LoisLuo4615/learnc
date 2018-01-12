@@ -61,7 +61,7 @@ void multinomial::operator =(const multinomial& mu)
 {
   delete [] value;
   max_length=mu.max_length;
-  value=new double[max_length];
+  value=new double[max_length+1];
   for(int i=0;i<max_length;i++)
     value[i]=mu.value[i];
 }
@@ -69,13 +69,15 @@ void multinomial::operator =(const multinomial& mu)
 multinomial::multinomial()
 {
   max_length=20;
-  value = new double[max_length];
+  value = new double[max_length+1];
+  value[0]='\0';
 }
 
 multinomial::multinomial(int max_len)
 {
   max_length=max_len;
   value = new double[max_length+1];
+  value[0]='\0';
 }
 
 multinomial::multinomial(const multinomial& other):max_length(other.max_length)
@@ -98,7 +100,7 @@ void multinomial::input()
   cout << "What is max index ?";
   cin >>max_length;
   max_length++;
-  value=new double[max_length];
+  // value=new double[max_length];
   cout << "please enter one coefficient.The index starts at 0.\n";
   for(int j=0;j<max_length;j++)
     cin >> value[j];
@@ -134,7 +136,7 @@ void multinomial::calculate(char symbol,multinomial& mu_one,multinomial& mu_two)
   else if(symbol=='-'){
     max_length=mu_one.max_length>=mu_two.max_length?mu_one.max_length:mu_two.max_length;
     min_length=mu_one.max_length<mu_two.max_length?mu_one.max_length:mu_two.max_length;
-    value= new double(max_length);
+    //    value= new double(max_length);
     for(int j=0;j<max_length;j++){
       value[j]=mu_one.value[j]-mu_two.value[j];
       if(j<min_length)
@@ -147,7 +149,7 @@ void multinomial::calculate(char symbol,multinomial& mu_one,multinomial& mu_two)
   else if(symbol=='+'){
     max_length=mu_one.max_length>=mu_two.max_length?mu_one.max_length:mu_two.max_length;
     min_length=mu_one.max_length<mu_two.max_length?mu_one.max_length:mu_two.max_length;
-    value= new double(max_length);
+    //  value= new double(max_length);
     for(int j=0;j<max_length;j++){
       if(j<min_length)
         value[j]=mu_one.value[j]+mu_two.value[j];

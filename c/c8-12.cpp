@@ -21,15 +21,15 @@ int main()
   return 0;
 }
 
-void find_key(char  old_code[100])
+void find_key(char old_code[100])
 {
-  int i,k,longs,j=0;
-  char new_code[100];
+  int j=0,longs;
   longs=strlen(old_code);
+  char new_code[longs+1];
   // longs=sizeof(old_code)/sizeof(old_code[0]);
-  for(k=1;k<96;k++)
+  for(int k=1;k<96;k++)
     {
-      for(i=0;i<longs;i++)
+      for(int i=0;i<longs;i++)
       {
           if(old_code[i]-k<32)
             new_code[i]=126-(31-old_code[i]+k);
@@ -37,11 +37,13 @@ void find_key(char  old_code[100])
             new_code[i]=old_code[i]-k;
           if(new_code[i]==' ')
             j++;
+          else if(ispunct(new_code[i]))
+            j--;
         }
 
-      if(isupper(new_code[0]) && j>0 && ispunct(new_code[longs-1]))
+      if(isupper(new_code[0]) && j>=0 && ispunct(new_code[longs-1]))
         {
-          new_code[i+1]='\0';
+          new_code[longs]='\0';
           cout << new_code <<  "   this key is "<< k << endl;
         }
       j=0;
